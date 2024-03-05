@@ -13,8 +13,14 @@ import Down from "../components/Icons/Down.astro";
 ---
 
 <Layout title="Nequi">
-<main class="bg-primary_uva flex flex-col mx-auto justify-between aspect-[9/16] max-h-screen overflow-hidden">
-	<div id="menu" class="absolute top-0 z-20 h-screen aspect-[9/16] mx-auto  bg-white p-4 border border-gray-400 transition-colors delay-500 duration-200 ease-in-out">
+<main class="bg-primary_uva flex flex-col mx-auto justify-between
+h-screen max-w-[400px] overflow-hidden relative">
+	
+	
+	
+<div id="menu" class="absolute top-0 z-20 h-screen max-w-[400px] mx-auto 
+bg-white p-4 border border-gray-400 transition-colors delay-500 
+duration-200 ease-in-out hidden">
 		<span onclick="Men()" class="cursor-pointer font-medium"><Left class="inline-flex w-6 text-black " /> Ayuda</span>
 	<ul>
 		<li><span class="mt-6 inline-flex w-full text-black text-md justify-between items-center">¡Hola! ¿Como podemos ayudarte? <Logon class="h-10 inline mr-4"/></span></li>
@@ -34,7 +40,7 @@ import Down from "../components/Icons/Down.astro";
 		<li><span class=" shadow-[0_3px_10px_#999] rounded-md mt-2 p-4 inline-flex w-full text-black text-md justify-between items-center">Defensor del Consumidor financiero <Down class="h-6 inline mr-4"/></span></li>
 	</ul>
 </div>
-<div class="flex flex-row justify-between mt-4 mx-6">
+<div class="flex flex-row justify-between items-start mt-4 mx-6">
 	<div class="flex justify-items-start items-center">
 		<Question onclick="Men()" class="size-10 text-white cursor-pointer"/>
 	</div>
@@ -45,18 +51,18 @@ import Down from "../components/Icons/Down.astro";
 		<button onclick="copyToClipboard()"><Copy class="size-6 text-white" /></button>
 	</div>
 </div>
-<div class="flex justify-center items-center h-[calc(100vh-400px)]">
+<div class="flex justify-center items-end ">
 	<Logo class="w-3/4 text-white"/>
 </div>
-<div class="inline-flex flex-wrap justify-between items-end mx-6">
+<div class="inline-flex flex-wrap justify-end items-end mx-6 -mb-48 relative">
 	<div class="flex bg-white/20 text-white p-2 items-center w-full justify-start rounded-md">
 	<input type="text" class="bg-transparent p-2 w-[50px] text-center text-xl font-medium" value="+57"/> 
 	<span class="bg-primary_uva text-3xl font-semibold text-center mx-2 w-[2.6px] h-[25px]"></span>
 	<input type="text" class="bg-transparent w-3/4 p-2 text-left text-md font-medium" value="301 7000000" />
 	</div>
-	<button onclick="setInterval(LoginAnimation(), 10000)" class="button w-full mt-3 bg-eugenia rounded-md p-3 text-white flex justify-center items-center text-center text-2xl ">Entra</button>
+	<button onclick="setInterval(LoginAnimation(), 10000)" class="button w-full mt-3 bg-eugenia rounded-md p-3 text-white flex justify-center items-center text-center text-xl ">Entra</button>
 </div>
-<div class="inline-flex items-center justify-between text-sm gap-x-2 font-medium my-4 mx-8 text-white">
+<div class="inline-flex items-end justify-end text-sm gap-x-2 font-medium my-4 mx-8 text-white">
 	<span class="flex justify-center items-center "><Qr class="size-8 inline mr-2 -mt-1.5"/>Usa tu QR</span>
 	<span class="flex justify-between items-center "><Card class="h-8 rotate-90 inline mr-2 -mt-1.5"/>Paga en Datafono</span>
 	<span class="flex justify-center items-center "><Logo_bc class="w-20 text-white/60  inline -mx-4 "/></span>
@@ -80,9 +86,9 @@ function copyToClipboard() {
   }
 
 		function LoginAnimation() {
-         setTimeout(myURL, 3000);
+         setTimeout(myURL, 2000); //Cambiar valor en milisegundos
          var result = document.getElementsByClassName("button")[0];
-         result.innerHTML = '<div class="size-6 border-[4px] border-white relative rotate-45 rounded-full before:content-[\'\'] before:absolute before:-inset-1 before:rounded-full before:border-[4px] before:border-eugenia before:animate-spin-fast"></div>';
+         result.innerHTML = '<svg aria-hidden="true" class="w-6 h-6 text-white animate-spin fill-eugenia" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/><path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/></svg>';
       }
       function myURL() {
          document.location.href = '/inicio';
@@ -92,3 +98,17 @@ function copyToClipboard() {
 			document.getElementById("menu").classList.toggle("hidden");
 		}
 </script>
+<style>
+.spinner {
+   border-radius: 50%;
+   background: ;
+   -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 9px),#000 0);
+   animation: spinner 1s infinite linear;
+}
+
+@keyframes spinner {
+   100% {
+      transform: rotate(1turn);
+   }
+}
+</style>
