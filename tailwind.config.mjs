@@ -10,6 +10,7 @@ export default {
 			},
 			animation: {
 				"spin-slow": "spin-slow 30s linear infinite",
+				"spin-fast": "spin-slow 1s linear infinite",
 			},
 			keyframes: {
 				"spin-slow": {

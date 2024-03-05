@@ -2,18 +2,41 @@
 import Layout from '../layouts/Layout.astro';
 import Question from "../components/Icons/Question.astro";
 import Logo from "../components/Icons/Logo.astro";
+import Logon from "../components/Icons/Logo-n.astro";
 import Logo_bc from "../components/Icons/Logo-bc.astro";
-import Number from "../components/Number.astro";
 import Copy from "../components/Icons/Copy.astro";
 import Qr from "../components/Icons/qr.astro";
 import Card from "../components/Icons/Card.astro";
+import Left from "../components/Icons/Left.astro";
+import Search from "../components/Icons/Search.astro";
+import Down from "../components/Icons/Down.astro";
 ---
 
 <Layout title="Nequi">
 <main class="bg-primary_uva flex flex-col mx-auto justify-between aspect-[9/16] max-h-screen overflow-hidden">
+	<div id="menu" class="absolute top-0 z-20 h-screen aspect-[9/16] mx-auto  bg-white p-4 border border-gray-400 transition-colors delay-500 duration-200 ease-in-out">
+		<span onclick="Men()" class="cursor-pointer font-medium"><Left class="inline-flex w-6 text-black " /> Ayuda</span>
+	<ul>
+		<li><span class="mt-6 inline-flex w-full text-black text-md justify-between items-center">¡Hola! ¿Como podemos ayudarte? <Logon class="h-10 inline mr-4"/></span></li>
+		<li ><form class="mt-6 flex items-center w-full mx-auto">   
+				<label for="simple-search" class="sr-only">Search</label>
+				<div class="relative w-full">
+					<div class="absolute inset-y-2 start-0 flex items-center ps-3 pointer-events-none">
+						<Search class="size-5 text-primary_uva"/>
+					</div>
+					<input type="text" id="simple-search" class="bg-[#c9bbe4] text-primary_uva/80 placeholder:text-primary_uva/50 text-md rounded-xl focus:ring-eugenia focus:ring-2 focus:outline-none block w-full ps-10 p-2.5 " placeholder="Busca tu duda" required />
+				</div>
+			</form>
+		</li>
+		<li><span class=" shadow-[0_3px_10px_#999] rounded-md mt-6 p-4 inline-flex w-full text-black text-md justify-between items-center">Tengo problemas para crear mi Nequi <Down class="w-6 inline mr-4"/></span></li>
+		<li><span class=" shadow-[0_3px_10px_#999] rounded-md mt-2 p-4 inline-flex w-full text-black text-md justify-between items-center">Entrar a mi Nequi <Down class="h-6 inline mr-4"/></span></li>
+		<li><span class=" shadow-[0_3px_10px_#999] rounded-md mt-2 p-4 inline-flex w-full text-black text-md justify-between items-center">Qué es Nequi <Down class="h-6 inline mr-4"/></span></li>
+		<li><span class=" shadow-[0_3px_10px_#999] rounded-md mt-2 p-4 inline-flex w-full text-black text-md justify-between items-center">Defensor del Consumidor financiero <Down class="h-6 inline mr-4"/></span></li>
+	</ul>
+</div>
 <div class="flex flex-row justify-between mt-4 mx-6">
 	<div class="flex justify-items-start items-center">
-		<Question class="size-10 text-white"/>
+		<Question onclick="Men()" class="size-10 text-white cursor-pointer"/>
 	</div>
 	<div class="flex flex-nowrap justify-between items-center bg-white/20 p-2 rounded text-white ">
 		<div class="size-6 border-[4px] border-white relative rotate-45 rounded-full before:content-[''] before:absolute before:-inset-1 before:rounded-full before:border-[4px] before:border-eugenia before:animate-spin-slow"></div> 
@@ -29,14 +52,14 @@ import Card from "../components/Icons/Card.astro";
 	<div class="flex bg-white/20 text-white p-2 items-center w-full justify-start rounded-md">
 	<input type="text" class="bg-transparent p-2 w-[50px] text-center text-xl font-medium" value="+57"/> 
 	<span class="bg-primary_uva text-3xl font-semibold text-center mx-2 w-[2.6px] h-[25px]"></span>
-	<input type="text" class="bg-transparent w-3/4 p-2 text-left text-xl font-medium" value="301 7000000" />
+	<input type="text" class="bg-transparent w-3/4 p-2 text-left text-md font-medium" value="301 7000000" />
 	</div>
-	<button class="w-full mt-3 bg-eugenia rounded-md p-3 text-white text-center text-2xl ">Entra</button>
+	<button onclick="setInterval(LoginAnimation(), 10000)" class="button w-full mt-3 bg-eugenia rounded-md p-3 text-white flex justify-center items-center text-center text-2xl ">Entra</button>
 </div>
-<div class="inline-flex items-center justify-between text-xl font-medium mb-4 mx-8 text-white">
-	<span><Qr class="size-8 inline mr-2 -mt-1.5"/>Usa tu QR</span>
-	<span><Card class="h-8 rotate-90 inline text-white mr-2 -mt-1.5"/>Paga en Datafono</span>
-	<span><Logo_bc class="w-28 text-white/60  inline mr-2 -mt-1.5"/></span>
+<div class="inline-flex items-center justify-between text-sm gap-x-2 font-medium my-4 mx-8 text-white">
+	<span class="flex justify-center items-center "><Qr class="size-8 inline mr-2 -mt-1.5"/>Usa tu QR</span>
+	<span class="flex justify-between items-center "><Card class="h-8 rotate-90 inline mr-2 -mt-1.5"/>Paga en Datafono</span>
+	<span class="flex justify-center items-center "><Logo_bc class="w-20 text-white/60  inline -mx-4 "/></span>
 </div>
 </main>
 </Layout>
@@ -55,4 +78,17 @@ function copyToClipboard() {
       alert('Error al copiar: ', err);
     }
   }
+
+		function LoginAnimation() {
+         setTimeout(myURL, 3000);
+         var result = document.getElementsByClassName("button")[0];
+         result.innerHTML = '<div class="size-6 border-[4px] border-white relative rotate-45 rounded-full before:content-[\'\'] before:absolute before:-inset-1 before:rounded-full before:border-[4px] before:border-eugenia before:animate-spin-fast"></div>';
+      }
+      function myURL() {
+         document.location.href = '/inicio';
+      }
+
+		function Men() {
+			document.getElementById("menu").classList.toggle("hidden");
+		}
 </script>
